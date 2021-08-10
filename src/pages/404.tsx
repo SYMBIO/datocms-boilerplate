@@ -14,8 +14,8 @@ import { CALENDAR_FORMATS } from '../constants';
 import { ContextsProvider } from '@symbio/headless/dist/contexts';
 import providers from '../providers';
 import { MyPageProps } from '@symbio/headless';
-import { trackPage } from '@symbio/headless/dist/utils/gtm';
 import { getBlocksProps } from '@symbio/headless/dist/lib/blocks/getBlocksProps';
+import { trackPage } from '../utils/gtm';
 import { PageProps } from '../types/page';
 import { WebSettingsProps } from '../types/webSettings';
 

@@ -17,9 +17,9 @@ import providers from '../providers';
 import symbio from '../../symbio.config.json';
 import { Logger } from '@symbio/headless/dist/services';
 import { MyPageProps } from '@symbio/headless';
-import { trackPage } from '@symbio/headless/dist/utils/gtm';
 import { ContextsProvider } from '@symbio/headless/dist/contexts';
-import { getBlocksProps } from '@symbio/headless/dist/lib/blocks/getBlocksProps';
+import { getBlocksProps } from '@symbio/headless';
+import { trackPage } from '../utils/gtm';
 import { PageProps } from '../types/page';
 import { WebSettingsProps } from '../types/webSettings';
 
@@ -29,6 +29,7 @@ const PreviewToolbar = dynamic<PreviewToolbarProps>(() =>
 
 const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => {
     const { hostname, site, page, webSetting, blocksPropsMap, preview } = props;
+    console.log('blocksPropsMap', blocksPropsMap);
     const { gtm, tz } = symbio;
     const item = Array.isArray(blocksPropsMap) && blocksPropsMap.length > 0 ? blocksPropsMap[0].item : undefined;
     const router = useRouter();
@@ -54,6 +55,8 @@ const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => 
     useEffect(() => {
         trackPage(currentUrl);
     }, []);
+
+    console.log(page);
 
     return (
         <ContextsProvider.Provider
