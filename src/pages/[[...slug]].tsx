@@ -29,7 +29,6 @@ const PreviewToolbar = dynamic<PreviewToolbarProps>(() =>
 
 const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => {
     const { hostname, site, page, webSetting, blocksPropsMap, preview } = props;
-    console.log('blocksPropsMap', blocksPropsMap);
     const { gtm, tz } = symbio;
     const item = Array.isArray(blocksPropsMap) && blocksPropsMap.length > 0 ? blocksPropsMap[0].item : undefined;
     const router = useRouter();
@@ -55,8 +54,6 @@ const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => 
     useEffect(() => {
         trackPage(currentUrl);
     }, []);
-
-    console.log(page);
 
     return (
         <ContextsProvider.Provider

@@ -58,7 +58,7 @@ const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => 
                 },
             }}
         >
-            <Head site={site} page={page}/>
+            <Head site={site} page={page} />
 
             <Layout>
                 <Navbar />

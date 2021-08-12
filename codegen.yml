@@ -17,8 +17,10 @@ generates:
                 IntType: number
                 UploadId: number
                 FloatType: number
+                SiteLocale: string
             namingConvention:
                 typeNames: pascal-case#pascalCase
                 enumValues: keep
                 transformUnderscore: false
             skipTypename: false
+            enumsAsTypes: true
