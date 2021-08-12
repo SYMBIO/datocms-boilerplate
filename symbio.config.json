@@ -28,7 +28,6 @@
     },
     "tz": "Europe/Prague",
     "datocms": {
-        "domain": "symbio-template.admin.datocms.com",
-        "pageTypeId": "184261"
+        "domain": "symbio-template.admin.datocms.com"
     }
 }
