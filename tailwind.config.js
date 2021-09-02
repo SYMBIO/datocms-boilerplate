@@ -6,6 +6,7 @@ module.exports = {
         './src/components/**/*.{js,ts,jsx,tsx}',
         './src/blocks/**/*.{js,ts,jsx,tsx}',
     ],
+    mode: 'jit',
     darkMode: false, // or 'media' or 'class'
     theme: {
         screens: {
@@ -26,6 +27,25 @@ module.exports = {
                 15: '15',
                 16: '16',
                 17: '17',
+            },
+            transitionProperty: {
+                width: 'width',
+            },
+            colors: {
+                secondary: '#fff',
+                red: '#ff0000',
+                error: '#ff0000',
+                logo: '#f60',
+                primary: '#000',
+            },
+            zIndex: {
+                9999: '9999',
+            },
+            padding: {
+                '16/9': '56.25%',
+            },
+            height: {
+                '56.25vw': '56.25vw',
             },
         },
     },

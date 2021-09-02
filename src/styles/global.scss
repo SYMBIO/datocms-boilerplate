@@ -24,18 +24,6 @@
     --grid-gap: var(--grid-gap-mobile);
     --floor-spacing: 4rem;
     --spacing: 3rem;
-    --navbar-height: 5rem;
-
-    --logo-width: 3rem;
-    --logo-height: 3rem;
-    --white: #fff;
-    --black: #000;
-    --red: #ff0000;
-    --primary: var(--black);
-    --secondary: var(--white);
-    --background: var(--white);
-    --error: var(--error);
-
 
     @include from-tablet {
         --grid-columns: var(--grid-tablet-columns);
