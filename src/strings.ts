@@ -1,13 +1,6 @@
 /* eslint-disable */
 import symbio from '../symbio.config.json';
-const data: Record<string, Record<string, string>> = {
-    cs: {
-        'form.required': 'Povinné pole',
-    },
-    en: {
-        'form.required': 'Required field',
-    },
-};
+const data: Record<string, Record<string, string>> = {};
 
 export function transCount(cnt: number) {
     if (cnt === 0) {

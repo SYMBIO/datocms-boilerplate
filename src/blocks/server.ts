@@ -2,6 +2,10 @@
  * Import blocks which should be included in SSR
  */
 import { BlockType } from '@symbio/headless/dist/types/block';
+import { PageProps } from '../types/page';
+import { WebSettingsProps } from '../types/webSettings';
+import { Providers } from '../types/providers';
+import { Locale } from '../types/locale';
 
 import ButtonBlock from './ButtonBlock/ButtonBlock';
 import CarouselBlock from './CarouselBlock/CarouselBlock';
@@ -21,11 +25,7 @@ import YoutubeVimeoBlock from './YoutubeVimeoBlock/YoutubeVimeoBlock';
 /**
  * Define fragment for blocks to load with app data
  */
-import graphql from 'graphql-tag';
-import { PageProps } from '../types/page';
-import { WebSettingsProps } from '../types/webSettings';
-import { Providers } from '../types/providers';
-import { Locale } from '../types/locale';
+import { graphql } from 'relay-runtime';
 
 graphql`
     fragment serverBlocksContent on PageModelContentField {
@@ -37,7 +37,6 @@ graphql`
         ...GalleryBlock_content @relay(mask: false)
         ...ImageBlock_content @relay(mask: false)
         ...MapBlock_content @relay(mask: false)
-        ...NewsDetailBlock_content @relay(mask: false)
         ...NewsListFloorBlock_content @relay(mask: false)
         ...RichTextBlock_content @relay(mask: false)
         ...SubpageListBlock_content @relay(mask: false)

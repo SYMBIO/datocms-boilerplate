@@ -3,7 +3,15 @@
  */
 import dynamic from 'next/dynamic';
 import { BlockType } from '@symbio/headless/dist/types/block';
-import graphql from 'graphql-tag';
+import { PageProps } from '../types/page';
+import { WebSettingsProps } from '../types/webSettings';
+import { Providers } from '../types/providers';
+import { Locale } from '../types/locale';
+
+/**
+ * Define fragment for blocks to load with app data
+ */
+import { graphql } from 'relay-runtime';
 import ButtonBlock from './ButtonBlock/ButtonBlock';
 import CarouselBlock from './CarouselBlock/CarouselBlock';
 import CmsFormBlock from './CmsFormBlock/CmsFormBlock';
@@ -18,10 +26,6 @@ import RichTextBlock from './RichTextBlock/RichTextBlock';
 import SubpageListBlock from './SubpageListBlock/SubpageListBlock';
 import VideoBlock from './VideoBlock/VideoBlock';
 import YoutubeVimeoBlock from './YoutubeVimeoBlock/YoutubeVimeoBlock';
-import { WebSettingsProps } from '../types/webSettings';
-import { PageProps } from '../types/page';
-import { Providers } from '../types/providers';
-import { Locale } from '../types/locale';
 
 graphql`
     fragment blocksContent on PageModelContentField {
@@ -34,6 +38,7 @@ graphql`
         ...ImageBlock_content @relay(mask: false)
         ...MapBlock_content @relay(mask: false)
         ...NewsDetailBlock_content @relay(mask: false)
+        ...NewsListBlock_content @relay(mask: false)
         ...NewsListFloorBlock_content @relay(mask: false)
         ...RichTextBlock_content @relay(mask: false)
         ...SubpageListBlock_content @relay(mask: false)

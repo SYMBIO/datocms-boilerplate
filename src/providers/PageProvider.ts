@@ -17,6 +17,8 @@ import { PageProps } from '../types/page';
 import { WebSettingsProps } from '../types/webSettings';
 import { Providers } from '../types/providers';
 import { Locale } from '../types/locale';
+import symbio from '../../symbio.config.json';
+import models from '../models.json';
 
 class PageProvider extends AbstractDatoCMSProvider<d.pageDetailQuery, l.pageListQuery> {
     /**
@@ -115,7 +117,7 @@ class PageProvider extends AbstractDatoCMSProvider<d.pageDetailQuery, l.pageList
 }
 
 export default new PageProvider(pageDetailQuery, pageListQuery, {
-    id: '184261',
+    id: models['page'],
     apiKey: 'page',
-    locales: ['cs', 'en'],
+    locales: symbio.i18n.locales,
 });

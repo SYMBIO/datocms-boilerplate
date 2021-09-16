@@ -1,16 +1,24 @@
 import React, { ReactElement } from 'react';
-import graphql from 'graphql-tag';
-import { BlockWrapper } from '../../components/base/BlockWrapper/BlockWrapper';
-import { Button } from '../../components/primitives/Button/Button';
+import { graphql } from 'react-relay';
+import { AppContextProps } from '@symbio/headless/dist/types/appContext';
+import { OmitRefType } from '@symbio/headless/dist/types/app';
 import { ButtonBlock_content } from './__generated__/ButtonBlock_content.graphql';
+import { Button } from '../../components/blocks/Button/Button';
+import { PageProps } from '../../types/page';
+import { WebSettingsProps } from '../../types/webSettings';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface ServerProps {}
+export interface ButtonBlockStaticProps {}
 
-type ButtonBlockProps = ServerProps & {
-    content: ButtonBlock_content;
+export interface ButtonBlockContent extends OmitRefType<ButtonBlock_content> {
+    __typename: 'ButtonBlockRecord';
+}
+
+export interface ButtonBlockProps extends ButtonBlockStaticProps {
+    content: ButtonBlockContent;
+    app?: AppContextProps<PageProps, WebSettingsProps>;
     className?: string;
-};
+}
 
 graphql`
     fragment ButtonBlock_content on ButtonBlockRecord {
@@ -26,33 +34,22 @@ graphql`
         }
         page {
             id
-            url
         }
         label
     }
 `;
 
-function ButtonBlock({ content, className, ...rest }: ButtonBlockProps): ReactElement | null {
-    if (!content.label) {
-        return null;
-    }
-
-    return (
-        <BlockWrapper tooltip={'ButtonBlock'} className={className} {...rest}>
-            <Button page={content.page || undefined} href={content.file?.url}>
-                {content.label}
-            </Button>
-        </BlockWrapper>
-    );
-}
+const ButtonBlock = ({ content, ...otherProps }: ButtonBlockProps): ReactElement => (
+    <Button {...{ ...content, id: undefined, __typename: undefined }} {...otherProps} />
+);
 
 if (typeof window === 'undefined') {
-    // put your getStaticProps or getStaticPaths
+    // put your getStaticProps or getStaticPaths here
     /*
     ButtonBlock.getStaticProps = async ({
         locale,
         providers,
-    }: StaticBlockContext): Promise<ServerProps> => {
+    }: StaticBlockContext): Promise<ButtonBlockStaticProps> => {
         const provider = providers.x;
 
         return {};
