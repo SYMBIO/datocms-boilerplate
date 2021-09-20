@@ -1,7 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '@storybook/addon-console';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
-import '!style-loader!css-loader!sass-loader!../src/styles/global.scss';
+import '../src/styles/global.scss';
 import '!style-loader!css-loader!./custom.css';
 // @ts-ignore
 import theme from './theme';
