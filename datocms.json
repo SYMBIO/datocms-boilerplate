@@ -1,9 +1,8 @@
 {
     "name": "SYMBIO DatoCMS Starter",
     "description": "Starter project for content-based websites",
-    "previewImage": "THIS FIELD IS MANDATORY. PLEASE PROVIDE A VALUE.",
+    "previewImage": "https://www.datocms-assets.com/205/1605198221-screenshot2020-11-12-next-js-blog-example-with-datocms-1.jpg?crop=top&fit=crop&h=500&w=600&auto=format",
     "livePreviewUrl": "https://next-devstack.symbio.agency/",
-    "repo": "SYMBIO/datocms-boilerplate",
     "datocmsProjectId": "20999",
     "deploymentType": "static",
     "datocmsApiTokenEnvName": "DATOCMS_API_TOKEN",
