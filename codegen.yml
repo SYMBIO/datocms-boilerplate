@@ -1,8 +1,8 @@
 overwrite: true
 schema:
-    - https://graphql.datocms.com/preview:
+    - https://graphql.datocms.com/:
         headers:
-            Authorization: ${DATOCMS_API_TOKEN_FULL}
+            Authorization: ${DATOCMS_API_TOKEN}
 #documents: ./src/**/*.{ts,tsx}
 generates:
     ./src/schema/schema.graphql:
