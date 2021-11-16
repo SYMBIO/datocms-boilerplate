@@ -22,7 +22,7 @@ graphql`
 function VideoBlock({ content, ...rest }: VideoBlockProps): ReactElement<VideoBlockProps, 'BaseBlock'> {
     const { autoplay, video } = content;
     return (
-        <BlockWrapper tooltip={'VideoBlock'} className={styles.wrapper} {...rest}>
+        <BlockWrapper className={styles.wrapper} {...rest}>
             <Video video={{ uploadedVideo: video }} autoPlay={autoplay} />
         </BlockWrapper>
     );

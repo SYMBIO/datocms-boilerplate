@@ -22,7 +22,7 @@ graphql`
 
 function Error404Block({ content, className, ...rest }: Error404BlockProps): ReactElement {
     return (
-        <BlockWrapper tooltip={'Error404Block'} className={className} {...rest}>
+        <BlockWrapper className={className} {...rest}>
             <Error404 headline={content.headline} description={content.description} />
         </BlockWrapper>
     );

@@ -24,7 +24,7 @@ function MapBlock({ content, ...rest }: MapBlockProps): ReactElement<MapBlockPro
         return <></>
     }
     return (
-        <BlockWrapper tooltip={'MapBlock'} {...rest}>
+        <BlockWrapper {...rest}>
             <GoogleMap
                 isMarkerShown
                 latitude={content.gps ? content.gps.latitude : 0}

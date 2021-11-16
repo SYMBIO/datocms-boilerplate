@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react';
 import graphql from 'graphql-tag';
 import { GetStaticPathsResult } from 'next';
-import { newsDetailQueryResponse } from '../../relay/__generated__/newsDetailQuery.graphql';
 import { StaticBlockContext } from '@symbio/headless/dist/types/block';
 import getId from '@symbio/headless/dist/utils/getId';
+import { AppContextProps } from '@symbio/headless/dist/types/appContext';
 import styles from './NewsDetailBlock.module.scss';
+import { newsDetailQueryResponse } from '../../relay/__generated__/newsDetailQuery.graphql';
 import { BlockWrapper } from '../../components/base/BlockWrapper/BlockWrapper';
 import { NewsDetail } from '../../components/blocks/NewsDetail/NewsDetail';
 import { PageProps } from '../../types/page';
@@ -12,10 +13,9 @@ import { WebSettingsProps } from '../../types/webSettings';
 import symbio from '../../../symbio.config.json';
 import { Providers } from '../../types/providers';
 import { Locale } from '../../types/locale';
+import { NewsDetailBlock_content } from './__generated__/NewsDetailBlock_content.graphql';
 
-type ServerProps = newsDetailQueryResponse;
-
-type NewsDetailBlockProps = ServerProps;
+type NewsDetailBlockStaticProps = newsDetailQueryResponse;
 
 graphql`
     fragment NewsDetailBlock_content on NewsDetailBlockRecord {
@@ -23,18 +23,30 @@ graphql`
     }
 `;
 
-function NewsDetailBlock({ item }: NewsDetailBlockProps): ReactElement<NewsDetailBlockProps, 'BaseBlock'> {
+export interface NewsDetailBlockProps extends NewsDetailBlockStaticProps {
+    content: NewsDetailBlock_content;
+    app?: AppContextProps<PageProps, WebSettingsProps>;
+    className?: string;
+}
+
+function NewsDetailBlock({
+    item,
+    app,
+    className,
+}: NewsDetailBlockProps): ReactElement<NewsDetailBlockProps, 'BaseBlock'> {
     return (
-        <BlockWrapper tooltip={'NewsDetailBlock'} className={`flex-col ${styles.wrapper}`}>
+        <BlockWrapper className={`flex-col ${styles.wrapper}`}>
             {item && item.content && (
                 <NewsDetail
-                    news={{
+                    item={{
                         ...item,
                         dateFrom: String(item.dateFrom),
                         title: String(item.title),
                         slug: String(item.slug),
                         content: item.content as never,
                     }}
+                    app={app}
+                    className={className}
                 />
             )}
         </BlockWrapper>
@@ -54,7 +66,7 @@ if (typeof window === 'undefined') {
         locale,
         context: { params },
         providers,
-    }: StaticBlockContext<PageProps, WebSettingsProps, Providers, Locale>): Promise<ServerProps> => {
+    }: StaticBlockContext<PageProps, WebSettingsProps, Providers, Locale>): Promise<NewsDetailBlockStaticProps> => {
         if (!params || !params.slug) {
             const err = new Error('Page not found') as Error & { code: string };
             err.code = 'ENOENT';

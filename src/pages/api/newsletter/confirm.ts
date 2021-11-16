@@ -87,6 +87,6 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         res.end(JSON.stringify({ status: 'OK' }));
     } catch (e) {
         res.statusCode = 400;
-        res.end(JSON.stringify({ status: 'ERROR', error: e.message }));
+        res.end(JSON.stringify({ status: 'ERROR', error: e instanceof Error ? e.message : '' }));
     }
 };

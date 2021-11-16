@@ -9,7 +9,7 @@ type IconPosition = 'left' | 'right';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     href?: string;
-    page?: Pick<PageProps, 'url' | 'id'>;
+    page?: Pick<PageProps, 'url' | 'id' | 'title'>;
     params?: Record<string, string | number>;
     icon?: Icons;
     iconPosition?: IconPosition;

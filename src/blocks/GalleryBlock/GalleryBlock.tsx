@@ -22,7 +22,7 @@ function GalleryBlock({ content }: GalleryBlockProps): ReactElement | null {
 
     if (assets.length > 0) {
         return (
-            <BlockWrapper tooltip={'GalleryBlock'}>
+            <BlockWrapper>
                 <Gallery images={assets} />
             </BlockWrapper>
         );

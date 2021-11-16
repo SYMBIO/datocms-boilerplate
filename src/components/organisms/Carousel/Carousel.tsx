@@ -25,7 +25,6 @@ export interface CarouselProps {
     readonly banners: ReadonlyArray<{
         readonly id: string;
         readonly image: {
-            readonly id: string;
             readonly url: string;
             readonly width: number | null;
             readonly height: number | null;
@@ -33,7 +32,6 @@ export interface CarouselProps {
             readonly title: string | null;
         } | null;
         readonly video: {
-            readonly id: string;
             readonly width: number | null;
             readonly height: number | null;
             readonly video: {

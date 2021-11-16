@@ -23,7 +23,7 @@ graphql`
 
 function NewsListBlock({ data, ...rest }: NewsListBlockProps): ReactElement<NewsListBlockProps, 'BaseBlock'> {
     return (
-        <BlockWrapper tooltip={'NewsListBlock'} className={styles.wrapper} {...rest}>
+        <BlockWrapper className={styles.wrapper} {...rest}>
             <NewsList items={data} />
         </BlockWrapper>
     );

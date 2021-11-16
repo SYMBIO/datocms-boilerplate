@@ -23,6 +23,7 @@ graphql`
         allNewsPage {
             id
             url
+            title
         }
         allNewsLinkText
         categories {
@@ -41,7 +42,7 @@ function NewsListFloorBlock({
     const { heading, allNewsLinkText, allNewsPage } = content;
 
     return (
-        <BlockWrapper tooltip={'NewsListFloorBlock'} {...rest}>
+        <BlockWrapper {...rest}>
             <NewsList headline={heading} items={data} allNewsPage={allNewsPage} allNewsLinkText={allNewsLinkText} />
         </BlockWrapper>
     );

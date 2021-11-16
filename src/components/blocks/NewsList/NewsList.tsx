@@ -9,7 +9,7 @@ interface NewsListProps {
     headline?: string | null;
     items: ReadonlyArray<NewsItem>;
     allNewsLinkText?: string | null;
-    allNewsPage?: Pick<PageProps, 'url' | 'id'> | null;
+    allNewsPage?: Pick<PageProps, 'url' | 'id' | 'title'> | null;
 }
 
 interface NewsItem {

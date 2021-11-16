@@ -12,6 +12,7 @@ graphql`
     fragment YoutubeVimeoBlock_content on YoutubeVimeoBlockRecord {
         id
         video {
+            url
             provider
             providerUid
             width
@@ -29,7 +30,7 @@ function YoutubeVimeoBlock({
     const { video } = content;
 
     return (
-        <BlockWrapper tooltip={'YoutubeVimeoBlock'} {...rest}>
+        <BlockWrapper {...rest}>
             <Video video={{ embeddedVideo: video }} />
         </BlockWrapper>
     );

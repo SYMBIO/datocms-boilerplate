@@ -2,7 +2,6 @@ import React, { ReactElement, ReactNode } from 'react';
 import clsx from 'clsx';
 
 export interface BlockWrapperProps {
-    tooltip: string;
     children?: ReactNode;
     className?: string;
 }

@@ -24,7 +24,7 @@ function RichTextBlock({ content, ...rest }: RichTextBlockProps): ReactElement<R
     }
 
     return (
-        <BlockWrapper tooltip={'RichTextBlock'} className={`flex-col ${styles.wrapper}`} {...rest}>
+        <BlockWrapper className={`flex-col ${styles.wrapper}`} {...rest}>
             <RichText content={text} />
         </BlockWrapper>
     );

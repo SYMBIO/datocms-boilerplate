@@ -54,7 +54,7 @@ graphql`
 function CmsFormBlock({ content }: CmsFormBlockProps): ReactElement | null {
     if (content.form?.content && content.form?.submitLabel && content.form.successMessage) {
         return (
-            <BlockWrapper tooltip={'CmsFormBlock'}>
+            <BlockWrapper>
                 <CmsForm {...content} />
             </BlockWrapper>
         );

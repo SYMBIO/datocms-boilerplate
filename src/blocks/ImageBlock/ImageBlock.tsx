@@ -22,7 +22,7 @@ function ImageBlock({ content }: ImageBlockProps): ReactElement | null {
 
     if (image) {
         return (
-            <BlockWrapper tooltip={'ImageBlock'}>
+            <BlockWrapper>
                 <div className="flex flex-col justify-center items-center">
                     <Image image={image} />
                 </div>
