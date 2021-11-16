@@ -20,7 +20,7 @@ export interface RichTextProps {
 const parserOptions = new (class implements HTMLReactParserOptions {
     public replace(node: DOMNode): React.ReactElement | Record<string, unknown> | false | undefined {
         if (node.type === 'tag') {
-            const domNode = (node as unknown) as Element;
+            const domNode = node as unknown as Element;
             switch (domNode.name) {
                 case 'a': {
                     const linkParams = domNode.attribs;
@@ -140,7 +140,7 @@ const parserOptions = new (class implements HTMLReactParserOptions {
         }
 
         if (node.type === 'text') {
-            const domNode = (node as unknown) as Text;
+            const domNode = node as unknown as Text;
             return <>{nbsp(domNode.data)}</>;
         }
 

@@ -5,8 +5,8 @@ import { GoogleMap } from '../../components/primitives/GoogleMap/GoogleMap';
 import { MapBlock_content } from './__generated__/MapBlock_content.graphql';
 
 export interface MapBlockProps {
-    content: MapBlock_content
-};
+    content: MapBlock_content;
+}
 
 graphql`
     fragment MapBlock_content on MapBlockRecord {
@@ -20,8 +20,8 @@ graphql`
 `;
 
 function MapBlock({ content, ...rest }: MapBlockProps): ReactElement<MapBlockProps, 'BaseBlock'> {
-    if(!content.gps || !content.gps.latitude || !content.gps.longitude) {
-        return <></>
+    if (!content.gps || !content.gps.latitude || !content.gps.longitude) {
+        return <></>;
     }
     return (
         <BlockWrapper {...rest}>
