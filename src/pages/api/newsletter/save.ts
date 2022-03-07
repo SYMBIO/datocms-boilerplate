@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { Mandrill } from 'mandrill-api';
 import Busboy from 'busboy';
 import dotenv from 'dotenv';
-import randomString from '@symbio/headless/dist/utils/randomString';
+import { randomString } from '@symbio/headless/utils';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
     // const client = new SiteClient(process.env.DATOCMS_API_TOKEN_FULL);
 
     if (req.method == 'POST') {
-        const busboy = new Busboy({ headers: req.headers });
+        const busboy = Busboy({ headers: req.headers });
         const data: Record<string, string> = {};
 
         busboy.on('field', function (fieldname, val) {

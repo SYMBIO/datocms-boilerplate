@@ -1,6 +1,6 @@
 import React, { DetailedHTMLProps, ReactElement, useEffect, useRef, VideoHTMLAttributes } from 'react';
 import { VideoInterface } from '@symbio/cms';
-import getHLSVideo from '@symbio/headless/dist/utils/getHLSVideo';
+import { getHLSVideo } from '@symbio/headless/utils';
 
 export interface UploadedVideoI extends DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement> {
     video?: VideoInterface;

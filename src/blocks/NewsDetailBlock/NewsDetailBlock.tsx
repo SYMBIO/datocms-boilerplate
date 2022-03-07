@@ -1,9 +1,8 @@
 import React, { ReactElement } from 'react';
 import graphql from 'graphql-tag';
 import { GetStaticPathsResult } from 'next';
-import { StaticBlockContext } from '@symbio/headless/dist/types/block';
-import getId from '@symbio/headless/dist/utils/getId';
-import { AppContextProps } from '@symbio/headless/dist/types/appContext';
+import { AppContextProps, StaticBlockContext } from '@symbio/headless';
+import { getId } from '@symbio/headless/utils';
 import styles from './NewsDetailBlock.module.scss';
 import { newsDetailQueryResponse } from '../../relay/__generated__/newsDetailQuery.graphql';
 import { BlockWrapper } from '../../components/base/BlockWrapper/BlockWrapper';

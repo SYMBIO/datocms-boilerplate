@@ -18,7 +18,7 @@ const Gallery = ({ images }: GalleryProps): JSX.Element => {
             {Array.isArray(images) &&
                 images.map((image, index) => (
                     <div
-                        key={image.id}
+                        key={`${image.id}_${index}`}
                         onClick={() => {
                             setIsOpen(true);
                             setActive(index);

@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
-import getBlockName from '@symbio/headless/dist/utils/getBlockName';
+import { getBlockName } from '@symbio/headless/utils';
 import blocks from '../../../blocks';
-import { BlocksPropsMap } from '@symbio/headless/dist/types/block';
-import { AppContextProps } from '@symbio/headless/dist/types/appContext';
+import { AppContextProps, BlocksPropsMap } from '@symbio/headless';
 import { PageProps } from '../../../types/page';
 import { WebSettingsProps } from '../../../types/webSettings';
 

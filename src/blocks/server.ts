@@ -1,7 +1,7 @@
 /**
  * Import blocks which should be included in SSR
  */
-import { BlockType } from '@symbio/headless/dist/types/block';
+import { BlockType } from '@symbio/headless';
 import { PageProps } from '../types/page';
 import { WebSettingsProps } from '../types/webSettings';
 import { Providers } from '../types/providers';

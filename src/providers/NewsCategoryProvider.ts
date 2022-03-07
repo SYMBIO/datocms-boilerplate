@@ -1,4 +1,4 @@
-import AbstractDatoCMSProvider from '@symbio/cms-datocms/dist/providers/DatoCMSProvider';
+import { DatoCMSProvider as AbstractDatoCMSProvider } from '@symbio/cms-datocms';
 import * as d from '../relay/__generated__/newsCategoryDetailQuery.graphql';
 import * as l from '../relay/__generated__/newsCategoryListQuery.graphql';
 import { newsCategoryDetailQuery, newsCategoryListQuery } from '../relay/newsCategory';

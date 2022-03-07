@@ -3,7 +3,7 @@ import graphql from 'graphql-tag';
 import { BlockWrapper } from '../../components/base/BlockWrapper/BlockWrapper';
 import { FindResponse } from '@symbio/cms-datocms';
 import { newsListQueryResponse } from '../../relay/__generated__/newsListQuery.graphql';
-import { StaticBlockContext } from '@symbio/headless/dist/types/block';
+import { StaticBlockContext } from '@symbio/headless';
 import styles from './NewsListBlock.module.scss';
 import { NewsList } from '../../components/blocks/NewsList/NewsList';
 import { PageProps } from '../../types/page';

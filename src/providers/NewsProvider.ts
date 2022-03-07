@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { ParsedUrlQuery } from 'querystring';
 import { fetchQuery } from 'react-relay';
 import { GetStaticPathsResult } from 'next';
-import AbstractDatoCMSProvider from '@symbio/cms-datocms/dist/providers/DatoCMSProvider';
+import { DatoCMSProvider as AbstractDatoCMSProvider } from '@symbio/cms-datocms';
 import { newsDetailQuery, newsListQuery, newsStaticPathsQuery } from '../relay/news';
 import * as d from '../relay/__generated__/newsDetailQuery.graphql';
 import * as l from '../relay/__generated__/newsListQuery.graphql';

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { i18n, images } = require('./symbio.config');
-const withPWA = require('next-pwa');
+// const withPWA = require('next-pwa');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
@@ -10,8 +10,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
     i18n,
     images,
-    target: 'serverless',
-    webpack5: false,
+    compiler: {
+        relay: {
+            src: './',
+            language: 'typescript',
+        },
+    },
     webpack: (config) => {
         config.module.rules.push({
             test: /\.svg$/,
@@ -73,4 +77,5 @@ const nextConfig = {
     },
 };
 
-module.exports = withBundleAnalyzer(withPWA(nextConfig));
+// module.exports = withBundleAnalyzer(withPWA(nextConfig));
+module.exports = withBundleAnalyzer(nextConfig);

@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import graphql from 'graphql-tag';
 import clsx from 'clsx';
-import { StaticBlockContext } from '@symbio/headless/dist/types/block';
+import { StaticBlockContext } from '@symbio/headless';
 import styles from './SubpageListBlock.module.scss';
 import { SubpageListBlock_content } from './__generated__/SubpageListBlock_content.graphql';
 import { BlockWrapper } from '../../components/base/BlockWrapper/BlockWrapper';

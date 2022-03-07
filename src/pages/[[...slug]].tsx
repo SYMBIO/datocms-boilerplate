@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useMemo } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -15,14 +15,10 @@ import { PreviewToolbarProps } from '../components/primitives/PreviewToolbar/Pre
 import { CALENDAR_FORMATS } from '../constants';
 import providers from '../providers';
 import symbio from '../../symbio.config.json';
-import { Logger } from '@symbio/headless/dist/services';
-import { MyPageProps } from '@symbio/headless';
-import { ContextsProvider } from '@symbio/headless/dist/contexts';
-import { getBlocksProps } from '@symbio/headless';
-import { trackPage } from '../utils/gtm';
+import { Logger } from '@symbio/headless/services';
+import { AppStore, getBlocksProps, MyPageProps } from '@symbio/headless';
 import { PageProps } from '../types/page';
 import { WebSettingsProps } from '../types/webSettings';
-import AppStore from '@symbio/headless/dist/lib/store/AppStore';
 
 const PreviewToolbar = dynamic<PreviewToolbarProps>(() =>
     import('../components/primitives/PreviewToolbar/PreviewToolbar').then((mod) => mod.PreviewToolbar),
@@ -42,10 +38,6 @@ const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => 
         '/' + (router.locale === router.defaultLocale ? '' : router.locale) + router.asPath !== '/'
             ? router.asPath
             : '';
-
-    useEffect(() => {
-        trackPage(currentUrl);
-    }, []);
 
     const app = useMemo(
         () => ({

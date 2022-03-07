@@ -3,7 +3,7 @@ import timeZone from 'dayjs/plugin/timezone';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import symbio from '../../symbio.config.json';
 import blocks from '../blocks/server';
 import { Blocks } from '../components/base/Blocks/Blocks';
@@ -12,12 +12,9 @@ import { Layout } from '../components/base/Layout/Layout';
 import { Navbar } from '../components/organisms/Navbar/Navbar';
 import { CALENDAR_FORMATS } from '../constants';
 import providers from '../providers';
-import { MyPageProps } from '@symbio/headless';
-import { getBlocksProps } from '@symbio/headless/dist/lib/blocks/getBlocksProps';
-import { trackPage } from '../utils/gtm';
+import { AppStore, getBlocksProps, MyPageProps } from '@symbio/headless';
 import { PageProps } from '../types/page';
 import { WebSettingsProps } from '../types/webSettings';
-import AppStore from '@symbio/headless/dist/lib/store/AppStore';
 
 const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => {
     const { hostname, site, page, webSetting, blocksPropsMap, redirect } = props;
@@ -28,10 +25,6 @@ const Page = (props: MyPageProps<PageProps, WebSettingsProps>): ReactElement => 
         '/' + (router.locale === router.defaultLocale ? '' : router.locale) + router.asPath !== '/'
             ? router.asPath
             : '';
-
-    useEffect(() => {
-        trackPage(currentUrl);
-    }, []);
 
     const app = {
         currentUrl,

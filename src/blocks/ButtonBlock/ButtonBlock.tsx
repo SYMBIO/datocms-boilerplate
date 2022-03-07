@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import { graphql } from 'react-relay';
-import { AppContextProps } from '@symbio/headless/dist/types/appContext';
-import { OmitRefType } from '@symbio/headless/dist/types/app';
+import { AppContextProps, OmitRefType } from '@symbio/headless';
 import { ButtonBlock_content } from './__generated__/ButtonBlock_content.graphql';
 import { Button } from '../../components/blocks/Button/Button';
 import { PageProps } from '../../types/page';
