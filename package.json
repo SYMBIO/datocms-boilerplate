@@ -12,8 +12,8 @@
         "create-story": "node node_modules/@symbio/headless/scripts/createStory.js $F $N",
         "dev": "next dev",
         "export": "NODE_ENV=production next export",
-        "generate-blocks": "env-cmd node node_modules/@symbio/headless/scripts/createBlocks.js && npm run relay",
-        "generate-models": "env-cmd -f .env node node_modules/@symbio/headless/scripts/generateModels.js",
+        "generate-blocks": "env-cmd node node_modules/@symbio/cms-datocms/scripts/createBlocks.js && npm run relay",
+        "generate-models": "env-cmd -f .env node node_modules/@symbio/cms-datocms/scripts/generateModels.js",
         "graphql-codegen": "env-cmd -f .env graphql-codegen --config codegen.yml",
         "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "relay": "relay-compiler",
@@ -21,7 +21,7 @@
         "storybook": "start-storybook --no-dll",
         "test": "jest",
         "test:watch": "jest --watch",
-        "update-strings": "env-cmd -f .env node node_modules/@symbio/headless/scripts/updateStrings.js"
+        "update-strings": "env-cmd -f .env node node_modules/@symbio/cms-datocms/scripts/updateStrings.js"
     },
     "engines": {
         "node": ">=14.0.0"
